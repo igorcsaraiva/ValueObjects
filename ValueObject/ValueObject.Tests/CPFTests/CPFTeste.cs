@@ -26,7 +26,7 @@ namespace ValueObject.Tests.CPFTests
         [InlineData("329.209.540-99")]
         [InlineData("329020905400.9")]
         [InlineData("32902090540099")]
-        public void CPF_ValidarCPF_DeveRetornarFalsoSeCPFForValido(string cpf)
+        public void CPF_ValidarCPF_DeveRetornarFalsoSeCPFForInvalido(string cpf)
         {
             //Arrange
             bool falso;

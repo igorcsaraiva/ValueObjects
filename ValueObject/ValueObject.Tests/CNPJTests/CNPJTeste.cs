@@ -25,7 +25,7 @@ namespace ValueObject.Tests.CNPJTests
         [InlineData("88.161.701/0001-54")]
         [InlineData("7411776015900018-6")]
         [InlineData("87.539/839/0001380")]
-        public void CNPJ_ValidarCNPJ_DeveRetornarFalsoSeCNPJForValido(string cnpj)
+        public void CNPJ_ValidarCNPJ_DeveRetornarFalsoSeCNPJForInvalido(string cnpj)
         {
             //Arrange
             bool falso;

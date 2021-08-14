@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+	  <PackageId>Biblioteca_de_objetos_de_valor</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Igor Saraiva Correa</Authors>
+	  <Company>ISC</Company>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>

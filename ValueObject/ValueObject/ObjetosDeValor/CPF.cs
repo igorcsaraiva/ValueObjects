@@ -34,10 +34,10 @@ namespace ValueObject.ObjetosDeValor
 
         #region Validação de CPF
         /// <summary>
-        /// Retorna falso se um cpf não for valido
+        /// Validação de um <see cref="CPF"/>
         /// </summary>
         /// <param name="cpf"></param>
-        /// <returns></returns>
+        /// <returns>Retorna falso se um cpf não for valido</returns>
         public static bool ValidarCPF(string cpf)
         {
             Span<int> NumerosDoCpf = stackalloc int[11];

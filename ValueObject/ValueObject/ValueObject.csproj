@@ -3,10 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
 	  <PackageId>Biblioteca_de_objetos_de_valor</PackageId>
-	  <Version>1.0.0</Version>
+	  <Version>1.0.1</Version>
 	  <Authors>Igor Saraiva Correa</Authors>
 	  <Company>ISC</Company>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Description>Biblioteca contendo: Classe CPF que é responsável pela validação, atribuição de mascara e retirada de mascara de um CPF; Classe CNPJ que é responsável pela validação, atribuição de mascara e retirada de mascara de um CNPJ</Description>
+	  <RepositoryUrl>https://github.com/igorcsaraiva/ValueObjects</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

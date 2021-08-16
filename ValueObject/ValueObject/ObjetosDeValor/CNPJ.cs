@@ -34,10 +34,10 @@ namespace ValueObject.ObjetosDeValor
 
         #region Validação de CNPJ
         /// <summary>
-        /// Retorna falso se um cnpj não for valido
+        /// Validação de um <see cref="CNPJ"/>
         /// </summary>
         /// <param name="cpf"></param>
-        /// <returns></returns>
+        /// <returns>Retorna falso se um cnpj não for valido></returns>
         public static bool ValidarCNPJ(string cnpj)
         {
             Span<int> NumerosDoCnpj = stackalloc int[14];

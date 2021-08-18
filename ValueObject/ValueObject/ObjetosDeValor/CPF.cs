@@ -12,6 +12,11 @@ namespace ValueObject.ObjetosDeValor
         private const char traco = '-';
 
         private string cpf;
+
+        /// <summary>
+        /// Remoção da máscara
+        /// </summary>
+        /// <returns>CPF sem a máscara Ex: "66950845057"</returns>
         public string CpfSemMascara => cpf;
         public string Cpf
         {
@@ -29,15 +34,20 @@ namespace ValueObject.ObjetosDeValor
         {
         }
         private CPF(string cpf) => Cpf = cpf;
-
+        /// <summary>
+        /// Permite a atribuição de uma string diretamente com o operador de atribuição. Ex: public CPF cpf { get; set; } / Jose.CPF = "669.508.450-57"
+        /// </summary>
+        /// <param name="value">CPF a ser instanciado</param>
+        /// <exception>CPF inválido</exception>
         public static implicit operator CPF(string value) => new(value);
 
         #region Validação de CPF
         /// <summary>
-        /// Validação de um <see cref="CPF"/>
-        /// </summary>
-        /// <param name="cpf"></param>
-        /// <returns>Retorna falso se um cpf não for valido</returns>
+        /// Validçao de um CPF
+        /// Obs: A validação não se trata de esse CPF estar atrelado a um CPF existente, e sim se os digtos informados conferem com os digitos verificadores
+        ///</summary>
+        /// <param name="cpf"> CPF a ser validado</param>
+        /// <returns>falso se um CPF não for valido</returns>
         public static bool ValidarCPF(string cpf)
         {
             Span<int> NumerosDoCpf = stackalloc int[11];
@@ -129,8 +139,16 @@ namespace ValueObject.ObjetosDeValor
             return stringBuilder.Insert(3, ponto).Insert(7, ponto).Insert(11, traco).ToString();
         }
 
+        /// <summary>
+        /// Comparação entre CPF
+        /// </summary>
+        /// <returns>verdadeiro se o CPF for igual ao outro</returns>
         public bool Equals(CPF other) => this.cpf == other.cpf;
 
+        /// <summary>
+        /// Inserção de máscara
+        /// </summary>
+        /// <returns>CPF com a máscara Ex: "669.508.450-57"</returns>
         public override string ToString() => AtribuirMascaraCPF();
 
     }

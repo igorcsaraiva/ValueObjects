@@ -13,7 +13,13 @@ namespace ValueObject.ObjetosDeValor
         private const char barra = '/';
 
         private string cnpj;
+
+        /// <summary>
+        /// Remoção da máscara
+        /// </summary>
+        /// <returns>CNPJ sem a máscara Ex: "73129217000170"</returns>
         public string CnpjSemMascara => cnpj;
+
         public string Cnpj
         {
             get => cnpj;
@@ -30,14 +36,20 @@ namespace ValueObject.ObjetosDeValor
         }
         public CNPJ(string cnpj) => Cnpj = cnpj;
 
+        /// <summary>
+        /// Permite a atribuição de uma string diretamente com o operador de atribuição. Ex: public CNPJ cnpj { get; set; } / ACME.CNPJ = "73.129.217/0001-70"
+        /// </summary>
+        /// <param name="value">CNPJ a ser instanciado</param>
+        /// <exception>Cnpj inválido</exception>
         public static implicit operator CNPJ(string value) => new CNPJ(value);
 
         #region Validação de CNPJ
         /// <summary>
-        /// Validação de um <see cref="CNPJ"/>
+        /// Validçao de um CNPJ
+        /// Obs: A validação não se trata de esse CNPJ estar atrelado a um CNPJ existente, e sim se os digtos informados conferem com os digitos verificadores
         /// </summary>
-        /// <param name="cpf"></param>
-        /// <returns>Retorna falso se um cnpj não for valido></returns>
+        /// <param name="cnpj">CNPJ a ser validado</param>
+        /// <returns>falso se um cnpj não for valido</returns>
         public static bool ValidarCNPJ(string cnpj)
         {
             Span<int> NumerosDoCnpj = stackalloc int[14];
@@ -111,8 +123,17 @@ namespace ValueObject.ObjetosDeValor
             return stringBuilder.Insert(2, ponto).Insert(6, ponto).Insert(10, barra).Insert(15, traco).ToString();
         }
 
+
+        /// <summary>
+        /// Comparação entre CNPJ
+        /// </summary>
+        /// <returns>verdadeiro se o CNPJ for igual ao outro</returns>
         public bool Equals(CNPJ other) => this.cnpj == other.cnpj;
 
+        /// <summary>
+        /// Inserção de máscara
+        /// </summary>
+        /// <returns>CNPJ com a máscara EX:"73.129.217/0001-70"</returns>
         public override string ToString() => AtribuirMascaraCNPJ();
 
     }
